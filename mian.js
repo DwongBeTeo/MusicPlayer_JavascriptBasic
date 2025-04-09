@@ -17,6 +17,7 @@
 12. cần fix 1 số lỗi: -load lại trang mất bài hát đang chạy(loadConFig):done
 - khi bài hát chạy 1 lúc thì cần lưu lại vào config: done 
 ấn ra ngoài sẽ tắt những cái box volume, sreach, option : done
+13: chạy được trên vscode nhưng ko chạy được trên git
 */
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -193,7 +194,7 @@ const app = {
     };
     // Ấn ra bên ngoài sẽ đóng các khung volume,option,search
     document.onclick =function(e) {
-      if(!e.target.closest('.btn-volume')){
+      if(!volumeBtn.contains(e.target) && !volumeWrap.contains(e.target)) {
         volumeWrap.classList.remove('show');
       }
       if (!e.target.closest('.option')) {
@@ -256,7 +257,7 @@ const app = {
       audio.volume = volumeValue / 100;
       volumeOutput.textContent = volumeValue;
       
-      _this.setConfig('volume', e.target.value);
+      _this.setConfig('volume', volumeValue);
     };
     //end volume
     
@@ -466,9 +467,10 @@ const app = {
     audio.currentTime = this.config.songCurrentTime ||0
     this.updateActiveSong(); // Cập nhật class active sau khi tải currentIndex
     //volume
-    audio.volume = this.config.volume / 100
-    volumeRange.value = this.config.volume
-    volumeOutput.textContent = this.config.volume
+    const savedVolume = this.config.volume !== undefined ? this.config.volume : 100; // Mặc định 100
+    audio.volume = savedVolume / 100;
+    volumeRange.value = savedVolume;
+    volumeOutput.textContent = savedVolume;
     //Dark theme
     this.isDarkMode = this.config.isDarkMode || false;
     if(this.isDarkMode) {
