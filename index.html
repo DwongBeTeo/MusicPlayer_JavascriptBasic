@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1566d9eabd.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -39,7 +40,7 @@
               <div class="option-list">
                 <div class="option-item theme-btn">
                   <span>Dark mode</span>
-                  <i class="theme-icon fas fa-moon"></i>
+                  <i class="theme-icon fa-solid fa-moon"></i>
                 </div>
                 <div class="option-item">
                   Bài hát yêu thích
@@ -88,34 +89,29 @@
               <h3 class="title">Music name</h3>
               <p class="author">Singer</p>
             </div>
-            <div class="option">
-              <i class="fas fa-ellipsis-h"></i>
-            </div>
-          </div>
-          <div class="song">
-            <div class="thumb" style="background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg')">
-            </div>
-            <div class="body">
-              <h3 class="title">Music name</h3>
-              <p class="author">Singer</p>
-            </div>
-            <div class="option">
-              <i class="fas fa-ellipsis-h"></i>
-            </div>
-          </div>
-          <div class="song">
-            <div class="thumb" style="background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg')">
-            </div>
-            <div class="body">
-              <h3 class="title">Music name</h3>
-              <p class="author">Singer</p>
-            </div>
-            <div class="option">
-              <i class="fas fa-ellipsis-h"></i>
+            <div class="favorite">
+              <i class="far fa-heart"></i>
             </div>
           </div>
         </div>
+    </div>
+
+    <!-- Overlay contains favoriteSongs box -->
+    <div class="favorite_songs-modal">
+      <div class="favorite_songs">
+        <div class="favorite_songs-header">
+          <h4>Danh sách bài hát yêu thích</h4>
+          <i class="favorite_songs-close fas fa-times"></i>
+        </div>
+        <div class="favorite_songs-list">
+
+        </div>
+        <div class="empty-list">
+          <i class="fas fa-music"></i>
+          <h4>Empty List</h4>
+        </div>
       </div>
+    </div>
       
       <!-- Design from: https://static.collectui.com/shots/3671744/musicloud-revolutionary-app-for-music-streaming-large -->
 

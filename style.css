@@ -2,6 +2,8 @@
   --primary-color-1: #FFC94A;
   --primary-color: #ec1f55;
   --text-color: #333;
+  --dark-color: #180161;
+  --dark-color-1: #03346E;
 }
 
 * {
@@ -53,7 +55,7 @@ html {
   width: 100%;
   max-width: 480px;
   border-bottom: 1px solid #ebebeb;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 /* #region SEARCH  */
@@ -100,6 +102,11 @@ html {
 .search-songs .title {
   font-size: 12px !important; 
 }
+
+.favorite {
+  cursor: pointer;
+}
+
 .favorite_songs .favorite,
 .search-songs .favorite {
   font-size: 20px !important;
@@ -157,6 +164,8 @@ html {
 /* #region Volume */
 .btn-volume {
   position: relative;
+  cursor: pointer; /* Thêm để giống nút */
+  padding: 10px; /* Thêm vùng click lớn hơn */
 }
 
 /* .btn-volume:hover .volume-wrap {
@@ -165,10 +174,19 @@ html {
 
 .volume-wrap {
   position: absolute;
-  left: 0;
-  right: 0;
+  top: 100%; /* Đặt ngay dưới nút volume */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translateX(-50%); /* Điều chỉnh căn giữa */
   text-align: center;
   display: none;
+  background: #fff; /* Thêm nền để dễ thấy */
+  padding: 10px; /* Thêm padding để không sát viền */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Thêm bóng để nổi bật */
+  z-index: 1; /* Đảm bảo không bị che khuất */
+}
+
+.volume-wrap.show {
+  display: block;
 }
 
 .volume-range {
@@ -177,6 +195,10 @@ html {
   writing-mode: vertical-lr;
   direction: rtl;
   vertical-align: bottom;
+}
+
+.volume-output {
+  margin-top: 5px; /* Khoảng cách với thanh range */
 }
 
 /* HEADER */
@@ -217,6 +239,10 @@ header h2 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1;
   display: none;
+}
+
+.option-list.show {
+  display: block;
 }
 
 .option-item {
@@ -313,7 +339,8 @@ header h2 {
 
 .control .btn {
   color: #666;
-  padding: 18px;
+  padding: 9px;
+  cursor: pointer;
   font-size: 18px;
 }
 
@@ -357,7 +384,7 @@ header h2 {
 
 /* PLAYLIST */
 .playlist {
-  margin-top: 468px;
+  margin-top: 459px;
   padding: 12px;
 }
 
